@@ -1,0 +1,1 @@
+from .nicknamechannel import setup
