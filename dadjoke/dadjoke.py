@@ -1,4 +1,5 @@
 import discord
+from discord.ext import commands
 import aiohttp
 from datetime import datetime
 from redbot.core import commands, checks, Config
@@ -12,11 +13,10 @@ async def dadjoke(self, ctx):
                     embed = discord.Embed(color=ctx.message.author.top_role.colour)
                     embed.title = "A dad joke."
                     embed.description = f"{resp['joke']}"
-                    embed.set_footer(text=f"{bot.user.name}")
+                    embed.set_footer(text=f"{self.bot.user.name}")
                     embed.timestamp = datetime.utcnow()
                     await ctx.send(embed=embed)
         except Exception as e:
             await ctx.send(f"{e}")
 def setup(bot):
-    n = dadjoke(bot)
-    bot.add_cog(n)
+    bot.add_cog(dadjoke(bot))
