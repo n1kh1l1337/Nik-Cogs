@@ -18,7 +18,7 @@ class DadJoke(commands.Cog):
             async with aiohttp.ClientSession() as session:
                 async with session.get('https://icanhazdadjoke.com', headers=headers) as get:
                     resp = await get.json()
-                    embed = discord.Embed(color=black)
+                    embed = discord.Embed(color=ctx.message.author.top_role.colour)
                     embed.title = "A dad joke."
                     embed.description = f"{resp['joke']}"
                     embed.set_footer(text=f"{self.bot.user.name}")
