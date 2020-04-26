@@ -3,7 +3,6 @@ from discord.ext import commands
 import asyncio
 import aiohttp
 from datetime import datetime
-from utils.settings import GREEN_EMBED, ERROR_EMOJI
 from discord.ext.commands.cooldowns import BucketType
 @commands.command()
 @commands.cooldown(1,2,BucketType.user)
@@ -16,7 +15,7 @@ async def dadjoke(self, ctx):
             async with aiohttp.ClientSession() as session:
                 async with session.get('https://icanhazdadjoke.com', headers=headers) as get:
                     resp = await get.json()
-                    embed = discord.Embed(color=GREEN_EMBED)
+                    embed = discord.Embed(color=black)
                     embed.title = "A dad joke."
                     embed.description = f"{resp['joke']}"
                     embed.set_footer(text=f"{self.bot.user.name}")
