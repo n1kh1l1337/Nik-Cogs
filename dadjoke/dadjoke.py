@@ -10,11 +10,11 @@ from datetime import datetime
 from utils.settings import GREEN_EMBED, ERROR_EMOJI
 import utils.checks
 from discord.ext.commands.cooldowns import BucketType
- @commands.command()
- @commands.cooldown(1,2,BucketType.user)
- @commands.guild_only()
- @commands.check(utils.checks.is_bot)
- async def dadjoke(self, ctx):
+@commands.command()
+@commands.cooldown(1,2,BucketType.user)
+@commands.guild_only()
+@commands.check(utils.checks.is_bot)
+async def dadjoke(self, ctx):
         """Says a dad joke. 2 second cooldown."""
         try:
             headers = {"Accept": "application/json"}
