@@ -24,4 +24,4 @@ class DadJoke(commands.Cog):
         await ctx.send(embed=embed)
 def setup(bot):
    n = DadJoke(bot)
-    bot.add_cog(n)
+   bot.add_cog(n)
