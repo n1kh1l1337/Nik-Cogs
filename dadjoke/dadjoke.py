@@ -3,9 +3,7 @@ from discord.ext import commands
 
 import asyncio
 import os
-import random
 import aiohttp
-import humanize
 from datetime import datetime
 from utils.settings import GREEN_EMBED, ERROR_EMOJI
 import utils.checks
