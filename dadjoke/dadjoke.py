@@ -23,4 +23,5 @@ class DadJoke(commands.Cog):
         embed.timestamp = datetime.utcnow()
         await ctx.send(embed=embed)
 def setup(bot):
-    bot.add_cog(dadjoke(bot))
+   n = DadJoke(bot)
+    bot.add_cog(n)
