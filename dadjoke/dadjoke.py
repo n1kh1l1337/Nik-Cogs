@@ -1,12 +1,9 @@
 import discord
 from discord.ext import commands
-
 import asyncio
-import os
 import aiohttp
 from datetime import datetime
 from utils.settings import GREEN_EMBED, ERROR_EMOJI
-import utils.checks
 from discord.ext.commands.cooldowns import BucketType
 @commands.command()
 @commands.cooldown(1,2,BucketType.user)
