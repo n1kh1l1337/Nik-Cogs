@@ -4,6 +4,7 @@ import asyncio
 import aiohttp
 from datetime import datetime
 from discord.ext.commands.cooldowns import BucketType
+from redbot.core import commands, checks, Config
 class DadJoke(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
