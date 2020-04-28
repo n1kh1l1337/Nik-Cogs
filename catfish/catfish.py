@@ -76,7 +76,7 @@ class Catfish(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    async def catfish(self, ctx: commands.Context):
+    async def catfish(self, ctx: commands.Context, author : discord.Member):
         # avatarUrl = user.avatar_url
         # for similarImg in parseResults(doImageSearch(user.avatar_url))[2]:
         #     print(similarImg)
