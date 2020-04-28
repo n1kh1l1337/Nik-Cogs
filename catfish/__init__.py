@@ -1,0 +1,1 @@
+from .catfish import setup
