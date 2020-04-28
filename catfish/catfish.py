@@ -76,14 +76,14 @@ class Catfish(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    async def catfish(self, ctx: commands.Context, user : discord.Member):
+    async def catfish(self, ctx: commands.Context):
         # avatarUrl = user.avatar_url
         # for similarImg in parseResults(doImageSearch(user.avatar_url))[2]:
         #     print(similarImg)
 
-        msgReply = 'Top 3 similar images to ' + user.name + '#' + user.discriminator + '\'s avatar:\n'
-        avatar=user.avatar_url
-        res = json.loads(parseResults(doImageSearch(avatar)))
+        msgReply = 'Top 3 similar images to ' + author.name + '#' + author.discriminator + '\'s avatar:\n'
+       
+        res = json.loads(parseResults(doImageSearch(author.avatar_url)))
         # for img in res['similar_images']:
         #     # print('img: ' + img)
         #     msgReply += img + '\n'
