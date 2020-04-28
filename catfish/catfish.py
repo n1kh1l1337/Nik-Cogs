@@ -69,7 +69,7 @@ def parseResults(code):
 
     return json.dumps(results)
 
-class Catfish:
+class Catfish(commands.Cog):
     """Do a Google Image Search on a user's avatar!"""
 
     def __init__(self, bot):
