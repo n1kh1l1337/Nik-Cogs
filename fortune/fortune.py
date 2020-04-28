@@ -60,7 +60,7 @@ class Fortune(commands.Cog):
         #await ctx.send(box(cowsay(what_does_the_cowsay)))
         embed = discord.Embed(color=ctx.message.author.top_role.colour)
         embed.title = "Cowsay!"
-        embed.description = f"{cowsay(what_does_the_cowsay)}"
+        embed.description = f"{box(cowsay(what_does_the_cowsay))}"
         embed.set_footer(text=f"{self.bot.user.name}")
         embed.timestamp = datetime.utcnow()
         await ctx.send(embed=embed)
