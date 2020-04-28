@@ -17,7 +17,7 @@ if python3:
 
 SEARCH_URL = 'https://www.google.com/searchbyimage?&image_url='
 
-def doImageSearch(self,image_url):
+def doImageSearch(image_url):
     """Perform the image search and return the HTML page response."""
 
     if python3:
@@ -40,7 +40,7 @@ def doImageSearch(self,image_url):
     else:
         return returned_code.getvalue()
 
-def parseResults(self,code):
+def parseResults(code):
     """Parse/Scrape the HTML code for the info we want."""
 
     soup = BeautifulSoup(code, 'html.parser')
