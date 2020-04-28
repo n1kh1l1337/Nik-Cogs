@@ -1,1 +1,1 @@
-from .catfish import setup
+from .Catfish import setup
