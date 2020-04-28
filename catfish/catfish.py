@@ -1,5 +1,5 @@
 import discord
-from discord.ext import commands
+from redbot.core import commands
 
 import argparse
 import pycurl
@@ -94,7 +94,7 @@ class Catfish:
 
         # print(res['similar_images'])
 
-        await self.bot.say(msgReply)
+        await ctx.send(msgReply)
 
 
 
