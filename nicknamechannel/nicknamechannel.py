@@ -61,9 +61,9 @@ class NicknameChannel(commands.Cog):
     @commands.Cog.listener()
     async def on_message(self, message):
         # Checks
-	if message.guild is None:
+        if message.guild is None:
             return
-	if message.author.bot:
+        if message.author.bot:
             return
         channel = await self.config.guild(message.guild).channel()
         if channel is None:
