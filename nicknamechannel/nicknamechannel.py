@@ -62,14 +62,14 @@ class NicknameChannel(commands.Cog):
     async def on_message(self, message):
         # Checks
         if message.guild is None:
-            return
+           return
         if message.author.bot:
-            return
+           return
         channel = await self.config.guild(message.guild).channel()
         if channel is None:
-            return
+           return
         if message.channel.id != channel:
-            return
+           return
         ignored_role = await self.config.guild(message.guild).ignore_role()
         if ignored_role is not None:
             role = message.guild.get_role(int(ignored_role))
