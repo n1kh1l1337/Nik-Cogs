@@ -39,7 +39,7 @@ class Fortune(commands.Cog):
         #await ctx.send(box(fortune))
         embed = discord.Embed(color=ctx.message.author.top_role.colour)
         embed.title = "Fortune."
-        embed.description = f"{box(fortune)}"
+        embed.description = f"{fortune}"
         embed.set_footer(text=f"{self.bot.user.name}")
         embed.timestamp = datetime.utcnow()
         await ctx.send(embed=embed)
@@ -57,8 +57,13 @@ class Fortune(commands.Cog):
         if len(what_does_the_cowsay) > 1500:
             await ctx.send("Moo.")
             return
-
-        await ctx.send(box(cowsay(what_does_the_cowsay)))
+        #await ctx.send(box(cowsay(what_does_the_cowsay)))
+        embed = discord.Embed(color=ctx.message.author.top_role.colour)
+        embed.title = "Cowsay!"
+        embed.description = f"{cowsay(what_does_the_cowsay)}"
+        embed.set_footer(text=f"{self.bot.user.name}")
+        embed.timestamp = datetime.utcnow()
+        await ctx.send(embed=embed)
 def setup(bot):
    n = Fortune(bot)
    bot.add_cog(n)
