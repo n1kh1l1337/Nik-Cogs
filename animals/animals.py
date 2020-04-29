@@ -39,6 +39,7 @@ class Animals(commands.Cog):
         msg = await ctx.send("`Searching for a kitten...`")
         await self._get_and_upload_dynamic_jpg(ctx, "http://www.randomkittengenerator.com/cats/rotator.php")
         await msg.delete()
+'''test'''
         
     @commands.command()
     async def puppy(self, ctx):
