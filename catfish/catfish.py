@@ -82,8 +82,8 @@ class Catfish(commands.Cog):
         #     print(similarImg)
 
         msgReply = 'Top 3 similar images to ' + author.name + '#' + author.discriminator + '\'s avatar:\n'
-       
-        res = json.loads(parseResults(doImageSearch(str(author.avatar_url))))
+        avt=str(author.avatar_url)
+        res = json.loads(parseResults(doImageSearch(avt)))
         # for img in res['similar_images']:
         #     # print('img: ' + img)
         #     msgReply += img + '\n'
