@@ -1,6 +1,5 @@
 import discord
 from redbot.core import commands
-
 import argparse
 import pycurl
 import json
@@ -54,6 +53,7 @@ def parseResults(code):
 
     for div in soup.findAll('div', attrs={'class':'g'}):
         sLink = div.find('a')
+        print(sLink)
         results['links'].append(sLink['href'])
 
     for desc in soup.findAll('span', attrs={'class':'st'}):
