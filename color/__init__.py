@@ -1,4 +1,4 @@
-from .colorbaby import ColorBaby
+from .ColorBaby import ColorBaby
 
 
 def setup(bot):
