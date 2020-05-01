@@ -45,12 +45,28 @@ def parseResults(code):
     soup = BeautifulSoup(code, 'html.parser')
 
     results = {
-        'links': []
+        'links': [],
+        'descriptions': [],
+        'titles': [],
+        'similar_images': []
     }
+    
 
     for div in soup.findAll('div', attrs={'class':'g'}):
         sLink = div.find('a')
         results['links'].append(sLink['href'])
+    
+    for desc in soup.findAll('span', attrs={'class':'st'}):
+        results['descriptions'].append(desc.get_text())
+
+    for title in soup.findAll('h3', attrs={'class':'r'}):
+        results['titles'].append(title.get_text())
+
+    for similar_image in soup.findAll('div', attrs={'rg_meta'}):
+        tmp = json.loads(similar_image.get_text())
+        img_url = tmp['ou']
+        results['similar_images'].append(img_url)
+
 
     return json.dumps(results)
 
@@ -76,7 +92,7 @@ class Catfish(commands.Cog):
         msgReply += res['links'][0] +'\n'
         msgReply += res['links'][1] +'\n'
         msgReply += res['links'][2] +'\n'
-
+        msgReply += res['descriptions'][0] +'\n'
         # print(res['similar_images'])
 
         await ctx.send(msgReply)
