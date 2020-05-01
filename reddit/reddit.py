@@ -127,7 +127,7 @@ class Reddit(commands.Cog):
         await ctx.send(embed=em)
 
     @_subreddit.command(name="hot")
-    async def subreddit_hot(self, ctx: commands.Context, subreddit: str, post_count: int = 3):
+    async def subreddit_hot(self, ctx: commands.Context, subreddit: str, post_count: int = 10):
         """Command for getting subreddit's hot posts"""
         if post_count <= 0 or post_count > 100:
             await ctx.send("Sorry, I can't do that")
@@ -149,10 +149,10 @@ class Reddit(commands.Cog):
                 await ctx.send(str(e))
                 return
             resp_json = resp_json["data"]["children"]
-            await post_menu(ctx, resp_json, page=0, timeout=30)
+            await post_menu(ctx, resp_json, page=0, timeout=50000)
 
     @_subreddit.command(name="new")
-    async def subreddit_new(self, ctx: commands.Context, subreddit: str, post_count: int = 3):
+    async def subreddit_new(self, ctx: commands.Context, subreddit: str, post_count: int = 10):
         """Command for getting subreddit's new posts"""
         if post_count <= 0 or post_count > 100:
             await ctx.send("Sorry, I can't do that")
@@ -174,10 +174,10 @@ class Reddit(commands.Cog):
                 await ctx.send(str(e))
                 return
             resp_json = resp_json["data"]["children"]
-            await post_menu(ctx, resp_json, page=0, timeout=30)
+            await post_menu(ctx, resp_json, page=0, timeout=50000)
 
     @_subreddit.command(name="top")
-    async def subreddit_top(self, ctx: commands.Context, subreddit: str, post_count: int = 3):
+    async def subreddit_top(self, ctx: commands.Context, subreddit: str, post_count: int = 10):
         """Command for getting subreddit's top posts"""
         if post_count <= 0 or post_count > 100:
             await ctx.send("Sorry, I can't do that")
@@ -199,7 +199,7 @@ class Reddit(commands.Cog):
                 await ctx.send(str(e))
                 return
             resp_json = resp_json["data"]["children"]
-            await post_menu(ctx, resp_json, page=0, timeout=30)
+            await post_menu(ctx, resp_json, page=0, timeout=50000)
 
     @_subreddit.command(name="controversial")
     async def subreddit_controversial(
@@ -226,7 +226,7 @@ class Reddit(commands.Cog):
                 await ctx.send(str(e))
                 return
             resp_json = resp_json["data"]["children"]
-            await post_menu(ctx, resp_json, page=0, timeout=30)
+            await post_menu(ctx, resp_json, page=0, timeout=50000)
 
     @checks.admin_or_permissions(manage_guild=True)
     @commands.group(name="redditset")
@@ -290,7 +290,7 @@ class Reddit(commands.Cog):
         if client_id and client_secret and username and password:
             auth = aiohttp.helpers.BasicAuth(client_id, password=client_secret)
             post_data = {"grant_type": "password", "username": username, "password": password}
-            headers = {"User-Agent": "Red-DiscordBotRedditCog/0.1 by /u/palmtree5"}
+            headers = {"User-Agent": "Red-DiscordBotRedditCog/0.1 by Nik"}
             response = await make_request(
                 self.session,
                 "POST",
