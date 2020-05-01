@@ -53,10 +53,9 @@ def parseResults(code):
 
     for div in soup.findAll('div', attrs={'class':'g'}):
         sLink = div.find('a')
-        print(sLink['href'])
         results['links'].append(sLink['href'])
 
-    for desc in soup.findAll('span', attrs={'class':'st'}):
+  '''  for desc in soup.findAll('span', attrs={'class':'st'}):
         results['descriptions'].append(desc.get_text())
 
     for title in soup.findAll('h3', attrs={'class':'r'}):
@@ -67,7 +66,7 @@ def parseResults(code):
         img_url = tmp['ou']
         print(tmp)
         print(img_url)
-        results['similar_images'].append(img_url)
+        results['similar_images'].append(img_url)'''
 
     return json.dumps(results)
 
