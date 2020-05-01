@@ -50,8 +50,6 @@ def parseResults(code):
 
     for div in soup.findAll('div', attrs={'class':'g'}):
         sLink = div.find('a')
-        if "href" not in sLink:
-            continue
         results['links'].append(sLink['href'])
 
     return json.dumps(results)
