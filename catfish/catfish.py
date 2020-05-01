@@ -53,7 +53,7 @@ def parseResults(code):
 
     for div in soup.findAll('div', attrs={'class':'g'}):
         sLink = div.find('a')
-        print(sLink)
+        print(sLink['href'])
         results['links'].append(sLink['href'])
 
     for desc in soup.findAll('span', attrs={'class':'st'}):
