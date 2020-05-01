@@ -45,7 +45,7 @@ def parseResults(code):
     soup = BeautifulSoup(code, 'html.parser')
 
     results = {
-        'links': [],
+        'links': ['aa'],
         'descriptions': [],
         'titles': [],
         'similar_images': []
