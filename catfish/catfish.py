@@ -65,6 +65,8 @@ def parseResults(code):
     for similar_image in soup.findAll('div', attrs={'rg_meta'}):
         tmp = json.loads(similar_image.get_text())
         img_url = tmp['ou']
+        print(tmp)
+        print(img_url)
         results['similar_images'].append(img_url)
 
     return json.dumps(results)
