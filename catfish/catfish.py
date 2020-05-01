@@ -45,7 +45,7 @@ def parseResults(code):
     soup = BeautifulSoup(code, 'html.parser')
 
     results = {
-        'links': ['aa'],
+        'links': [],
         'descriptions': [],
         'titles': [],
         'similar_images': []
@@ -76,9 +76,9 @@ class Catfish(commands.Cog):
         #     # print('img: ' + img)
         #     msgReply += img + '\n'
 
-        msgReply += '<' + res['links'][0] + '>\n'
-        msgReply += '<' + res['links'][1] + '>\n'
-        msgReply += '<' + res['links'][2] + '>\n'
+        msgReply += res['links'][0] 
+        msgReply += res['links'][1]
+        msgReply += res['links'][2]
 
         # print(res['similar_images'])
 
