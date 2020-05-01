@@ -76,9 +76,9 @@ class Catfish(commands.Cog):
         #     # print('img: ' + img)
         #     msgReply += img + '\n'
 
-        msgReply += '<' + res['similar_images'][0] + '>\n'
-        msgReply += '<' + res['similar_images'][1] + '>\n'
-        msgReply += '<' + res['similar_images'][2] + '>\n'
+        msgReply += '<' + res['links'][0] + '>\n'
+        msgReply += '<' + res['links'][1] + '>\n'
+        msgReply += '<' + res['links'][2] + '>\n'
 
         # print(res['similar_images'])
 
