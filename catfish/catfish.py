@@ -84,7 +84,7 @@ class Catfish(commands.Cog):
         await ctx.send(msgReply)
         avt=str(author.avatar_url)
         res = json.loads(parseResults(doImageSearch(avt)))
-        for img in res['links':4]:
+        for img in res['links']:
            await ctx.send(img)
         for i in res['similar_images']:
             await ctx.send(i)
