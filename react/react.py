@@ -20,7 +20,7 @@ class React(commands.Cog):
         if channel is None:
             channel = ctx.message.channel
         if msg_id is None:
-            async for message in channel.history(limit=10):
+            async for message in channel.history(limit=2):
                 msg_id = message
         else:
             try:
