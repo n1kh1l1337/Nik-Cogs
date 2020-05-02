@@ -47,7 +47,7 @@ def parseResults(code):
     results = {
         'links': [],
         'descriptions': [],
-        'titles': [],
+        'image': [],
         'similar_images': []
     }
     
@@ -59,8 +59,8 @@ def parseResults(code):
     for desc in soup.findAll('span', attrs={'class':'st'}):
         results['descriptions'].append(desc.get_text())
 
-    for title in soup.findAll('h3', attrs={'class':'r'}):
-        results['titles'].append(title.get_text())
+    for img in soup.findAll('meta', attrs={'property', "og:image"}):
+        results['image'].append(img.get_text())
 
     for similar_image in soup.findAll('div', attrs={'rg_meta'}):
         tmp = json.loads(similar_image.get_text())
@@ -88,6 +88,8 @@ class Catfish(commands.Cog):
         res = json.loads(parseResults(doImageSearch(avt)))
         for img in res['links']:
             await ctx.send(img)
+        for i in res['image']:
+            await ctx.send(i)
        # await ctx.send(res['similar_images'])
 
        # msgReply += res['links'][0] +'\n'
