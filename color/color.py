@@ -6,6 +6,7 @@ from redbot.core import commands
 from redbot.core.utils import chat_formatting as chat
 
 
+
 def rgb_to_cmyk(r, g, b):
     rgb_scale = 255
     cmyk_scale = 100
