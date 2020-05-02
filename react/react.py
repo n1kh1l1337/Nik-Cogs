@@ -23,19 +23,12 @@ class React(commands.Cog):
             async for message in channel.history(limit=2):
                 msg_id = message
         else:
-            try:
-                msg_id = await channel.fetch_message(msg_id)
-            except:
-                await ctx.send("Message ID {} not found in {}".format(msg_id, channel.mention), delete_after=5)
-                return
+            msg_id = await channel.fetch_message(msg_id)
         if ctx.channel.permissions_for(ctx.me).manage_messages:
             await ctx.message.delete()
-        if channel.permissions_for(ctx.me).add_reactions:
-            for emoji in emojis:
-                try:
-                    await msg_id.add_reaction(emoji)
-                except:
-                    pass
+       
+        for emoji in emojis:
+            await msg_id.add_reaction(emoji)
 def setup(bot):
    n = React(bot)
    bot.add_cog(n)
