@@ -313,9 +313,9 @@ class Insult(commands.Cog):
                 embed.timestamp = datetime.utcnow()
                 await ctx.send(embed=embed)
         else:
-             embed = discord.Embed(color=ctx.message.author.top_role.colour)
-                embed.title = "A insult."
-                embed.description = f"{ctx.message.author.mention + msg + choice(insults)}"
-                embed.set_footer(text=f"{self.bot.user.name}")
-                embed.timestamp = datetime.utcnow()
-                await ctx.send(embed=embed)
+            embed = discord.Embed(color=ctx.message.author.top_role.colour)
+            embed.title = "A insult."
+            embed.description = f"{ctx.message.author.mention + msg + choice(insults)}"
+            embed.set_footer(text=f"{self.bot.user.name}")
+            embed.timestamp = datetime.utcnow()
+            await ctx.send(embed=embed)
