@@ -59,7 +59,7 @@ def parseResults(code):
     for desc in soup.findAll('span', attrs={'class':'st'}):
         results['descriptions'].append(desc.get_text())
 
-    for img in soup.findAll('meta', attrs={'og:image'}):
+    for img in soup.findAll('meta', attrs={'image'}):
         results['image'].append(img.get_text())
 
     for similar_image in soup.findAll('div', attrs={'rg_meta'}):
