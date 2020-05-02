@@ -1,5 +1,4 @@
-from .react import setup
+from .react import React
 
 def setup(bot):
-   n = React(bot)
-   bot.add_cog(n)
+    bot.add_cog(React())
