@@ -16,7 +16,7 @@ class React(commands.Cog):
             channel must be the channel where the desired message is defaults to current channel
             if the bot has manage messages permission it will attempt to delete the command
         """
-        emojis = [":k3llyWave:",":k3llyWatchinYou:", ":fedoratip:", ":02sad:"]
+        emojis = ["k3llyWave","k3llyWatchinYou", "fedoratip", "02sad"]
         if channel is None:
             channel = ctx.message.channel
         if msg_id is None:
