@@ -16,9 +16,6 @@ class StickyRoles(commands.Cog):
         self.config.register_guild(sticky_roles=[], to_reapply={})
 
     def format_help_for_context(self, ctx: commands.Context) -> str:
-        """
-            Thanks Sinbad!
-        """
         pre_processed = super().format_help_for_context(ctx)
         return f"{pre_processed}\n\nCog Version: {self.__version__}"
 
@@ -46,7 +43,7 @@ class StickyRoles(commands.Cog):
             return
         sticky_roles.append(role.id)
         await self.config.guild(guild).sticky_roles.set(sticky_roles)
-        await ctx.send(_("That role will now be reapplied on join."))
+        await ctx.send("That role will now be reapplied on join.")
 
     @stickyroles.command()
     async def remove(self, ctx: commands.Context, *, role: discord.Role) -> None:
@@ -66,7 +63,7 @@ class StickyRoles(commands.Cog):
         guild = ctx.message.guild
         await self.config.guild(guild).sticky_roles.set([])
         await self.config.guild(guild).to_reapply.set({})
-        await ctx.send(_("All sticky roles have been removed."))
+        await ctx.send("All sticky roles have been removed.")
 
     @stickyroles.command(name="list")
     async def _list(self, ctx: commands.Context):
@@ -76,7 +73,7 @@ class StickyRoles(commands.Cog):
         roles = [guild.get_role(r) for r in await self.config.guild(guild).sticky_roles()]
         roles = [r.name for r in roles if r is not None]
         if roles:
-            await ctx.send(_("Sticky roles:\n\n") + ", ".join(roles))
+            await ctx.send("Sticky roles:\n\n") + ", ".join(roles)
         else:
             msg = ("No sticky roles. Add some with ") + "`{}stickyroles add`".format(ctx.prefix)
             await ctx.send(msg)
@@ -128,12 +125,12 @@ class StickyRoles(commands.Cog):
                 await member.add_roles(*to_add, reason="Sticky roles")
             except discord.Forbidden:
                 print(
-                    _("Failed to add roles")
-                    + _("I lack permissions to do that.")
+                    ("Failed to add roles")
+                    + ("I lack permissions to do that.")
                     + "{} ({})\n{}\n".format(member, member.id, to_add)
                 )
             except discord.HTTPException as e:
-                msg = _("Failed to add roles to ") + "{} ({})\n{}\n{}".format(
+                msg = ("Failed to add roles to ") + "{} ({})\n{}\n{}".format(
                     member, member.id, to_add, e
                 )
                 print(msg)
