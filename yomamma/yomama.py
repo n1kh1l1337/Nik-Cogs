@@ -14,13 +14,12 @@ class YoMama(commands.Cog):
     async def yomama(self, ctx):
         """Says a Yomama joke. 2 second cooldown."""
         try:
-            headers = {"Accept": "application/json"}
             async with aiohttp.ClientSession() as session:
-                async with session.get('https://api.yomomma.info/', headers=headers) as get:
-                    resp = await get.json()
+                 async with session.get("https://api.yomomma.info/") as response:
+                    result = await response.json()
                     embed = discord.Embed(color=ctx.message.author.top_role.colour)
                     embed.title = "yomama!."
-                    embed.description = f"{resp['joke']}"
+                    embed.description = f"{result['joke']}"
                     embed.set_footer(text=f"{self.bot.user.name}")
                     embed.timestamp = datetime.utcnow()
                     await ctx.send(embed=embed)
@@ -29,3 +28,5 @@ class YoMama(commands.Cog):
 def setup(bot):
    n = YoMama(bot)
    bot.add_cog(n)
+
+                
