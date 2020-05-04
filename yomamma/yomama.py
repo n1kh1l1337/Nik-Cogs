@@ -19,7 +19,7 @@ class YoMama(commands.Cog):
                     result = await response.json()
                     embed = discord.Embed(color=ctx.message.author.top_role.colour)
                     embed.title = "yomama!."
-                    embed.description = f"{result['joke']}"
+                    embed.description = f"{result}"
                     embed.set_footer(text=f"{self.bot.user.name}")
                     embed.timestamp = datetime.utcnow()
                     await ctx.send(embed=embed)
