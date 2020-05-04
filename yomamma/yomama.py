@@ -19,7 +19,7 @@ class YoMama(commands.Cog):
                  async with session.get("https://api.yomomma.info/") as response:
                     result = await response.json(content_type='text/html')
                     embed = discord.Embed(color=ctx.message.author.top_role.colour)
-                    embed.title = "yomama!."
+                    embed.title = "YoMama!"
                     embed.description = f"{result['joke']}"
                     embed.set_footer(text=f"{self.bot.user.name}")
                     embed.timestamp = datetime.utcnow()
