@@ -1,1 +1,1 @@
-from .joke import setup
+from .randomjoke import setup
