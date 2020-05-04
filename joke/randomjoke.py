@@ -17,11 +17,10 @@ class RandomJoke(commands.Cog):
         try:
             async with aiohttp.ClientSession() as session:
                  async with session.get("https://official-joke-api.appspot.com/random_joke") as response:
-                    result = await response.json(content_type='text/html')
+                    result = await response.json(content_type='application/json')
                     embed = discord.Embed(color=ctx.message.author.top_role.colour)
                     embed.title = "Random Joke!"
-                    embed.description = f"{result['setup']}\n"
-                    embed.description = f"{result['punchline']}"
+                    embed.description = f"{result['setup']}\n\n\n{result['punchline']}!"
                     embed.set_footer(text=f"{self.bot.user.name}")
                     embed.timestamp = datetime.utcnow()
                     await ctx.send(embed=embed)
