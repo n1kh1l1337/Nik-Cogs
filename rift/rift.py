@@ -55,7 +55,7 @@ class Rift(Cog):
         self.config.register_global(notify=True)
 
     # COMMANDS
-
+    @checks.is_owner()
     @commands.group()
     async def rift(self, ctx):
         """
@@ -143,7 +143,7 @@ class Rift(Cog):
                 )
             )
         )
-
+    @checks.is_owner()
     @rift.command(name="open")
     async def rift_open(self, ctx, *rifts: RiftConverter(_, globally=True)):
         """
