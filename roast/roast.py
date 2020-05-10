@@ -16,20 +16,22 @@ class Roast(commands.Cog):
         """
         await ctx.channel.trigger_typing()
         member = member or ctx.author
-        async with aiohttp.ClientSession() as session:
-            async with session.get("https://insult.mattbas.org/api/insult.json",
-                                              headers={"Accept": "application/json"}) as get:
-                res = await get.json()
-                if res.status != 200:
-                    await ctx.send("That lucky bastard... An error occurred."
+        try:
+            headers = {"Accept": "application/json"}
+            async with aiohttp.ClientSession() as session:
+                async with session.get("https://insult.mattbas.org/api/insult.json",
+                                              headers=headers) as get:
+                    res = await get.json()
+                    if res.status != 200:
+                        await ctx.send("That lucky bastard... An error occurred."
                                "Mission failed bois, we'll get 'em next time")
-                    return
-                embed = discord.Embed(color=ctx.message.author.top_role.colour)
-                embed.title = "Roast"
-                embed.description = f"{member.mention}, {res['insult']}"
-                embed.set_footer(text=f"{self.bot.user.name}")
-                embed.timestamp = datetime.utcnow()
-                await ctx.send(embed=embed)
+                        return
+                    embed = discord.Embed(color=ctx.message.author.top_role.colour)
+                    embed.title = "Roast"
+                    embed.description = f"{member.mention},{res['insult']}"
+                    embed.set_footer(text=f"{self.bot.user.name}")
+                    embed.timestamp = datetime.utcnow()
+                    await ctx.send(embed=embed)
 
 def setup(bot):
     bot.add_cog(Roast(bot))
