@@ -4,7 +4,7 @@ from redbot.core import commands
 class Roast(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-    @commands.command(aliases=["insult"])
+    @commands.command()
     async def roast(self, ctx, *, member: discord.Member = None):
         """
         Insult that guy
