@@ -1,6 +1,7 @@
 from datetime import datetime
 import discord
 import json
+import aiohttp
 from redbot.core import commands
 class Roast(commands.Cog):
     def __init__(self, bot):
