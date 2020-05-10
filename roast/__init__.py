@@ -1,1 +1,1 @@
-from .roast import Roast
+from .roast import setup
