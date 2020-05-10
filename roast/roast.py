@@ -21,7 +21,7 @@ class Roast(commands.Cog):
             async with aiohttp.ClientSession() as session:
                 async with session.get("https://insult.mattbas.org/api/insult.json",
                                               headers=headers) as get:
-                    res = await get.json()
+                    res = await get.json(content_type='text/html')
                     if res.status != 200:
                         await ctx.send("That lucky bastard... An error occurred."
                                "Mission failed bois, we'll get 'em next time")
@@ -32,6 +32,7 @@ class Roast(commands.Cog):
                     embed.set_footer(text=f"{self.bot.user.name}")
                     embed.timestamp = datetime.utcnow()
                     await ctx.send(embed=embed)
-
+        except Exception as e:
+            await ctx.send(f"{e}")
 def setup(bot):
     bot.add_cog(Roast(bot))
