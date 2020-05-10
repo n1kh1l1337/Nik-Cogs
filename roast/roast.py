@@ -1,6 +1,6 @@
-import discord
 from datetime import datetime
-from redbot.core import command
+import discord
+from redbot.core import commands
 class Roast(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
