@@ -21,7 +21,7 @@ class Roast(commands.Cog):
             async with aiohttp.ClientSession() as session:
                 async with session.get("https://insult.mattbas.org/api/insult.json",
                                               headers=headers) as get:
-                    res = await get.json(content_type='text/html')
+                    res = await get.json(content_type='text/json')
                     if res.status != 200:
                         await ctx.send("That lucky bastard... An error occurred."
                                "Mission failed bois, we'll get 'em next time")
