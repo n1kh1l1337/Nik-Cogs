@@ -28,7 +28,7 @@ class Roast(commands.Cog):
                         return
                     embed = discord.Embed(color=ctx.message.author.top_role.colour)
                     embed.title = "Roast"
-                    embed.description = f"{member.mention},{res['insult']}"
+                    embed.description = f"{member.mention},{res["insult"]}"
                     embed.set_footer(text=f"{self.bot.user.name}")
                     embed.timestamp = datetime.utcnow()
                     await ctx.send(embed=embed)
