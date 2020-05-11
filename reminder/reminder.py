@@ -1,7 +1,7 @@
 import discord
 from redbot.core import commands
 import textwrap
-from resources import Timer
+from .Timer import *
 import pendulum
 
 class HumanTime(commands.Converter):

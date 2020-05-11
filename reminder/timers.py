@@ -1,12 +1,8 @@
-import logging
 from datetime import datetime
 
 from services import TimersService
 
-from discord.ext import tasks
-
-log = logging.getLogger('BitchBot' + __name__)
-
+from redbot.core import tasks
 
 class Timers:
     def __init__(self, bot):
