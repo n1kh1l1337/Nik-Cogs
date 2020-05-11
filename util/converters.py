@@ -3,7 +3,6 @@ from redbot.core import commands
 import dateparser
 import functools
 
-
 class FetchedUser(commands.Converter):
     async def convert(self, ctx, argument):
         if not argument.isdigit():
