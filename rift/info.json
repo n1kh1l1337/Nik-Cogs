@@ -1,0 +1,8 @@
+{
+    "author" : ["Nik"],
+    "install_msg" : "Usage: `[p]help rift`",
+    "name" : "Rift",
+    "short" : "Allows cross-server communication through Red",
+    "description" : "Communicate with other servers through bot! Works to and from DMs as well.",
+    "tags" : ["cross-server", "communication", "fun", "trolling", "impersonation"]
+}

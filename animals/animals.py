@@ -23,7 +23,7 @@ class Animals(commands.Cog):
         async with aiohttp.ClientSession() as session:
             async with session.get("https://random.dog/woof.json") as response:
                 result = await response.json()
-                await msg.edit(content=result['url'])
+                await ctx.send(content=result['url'])
 
     @commands.command()
     async def dog2(self, ctx):
