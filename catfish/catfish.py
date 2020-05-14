@@ -58,9 +58,9 @@ def parseResults(code):
     for desc in soup.findAll('span', attrs={'class':'st'}):
         results['descriptions'].append(desc.get_text())
 
-    for similar_image in soup.find('meta', property="og:image"):
-        tmp = json.loads(similar_image.get_text())
-        results['similar_images'].append(tmp)
+    #for similar_image in soup.find('meta', property="og:image"):
+        #tmp = json.loads(similar_image.get_text())
+        #results['similar_images'].append(tmp)
 
 
     return json.dumps(results)
@@ -87,8 +87,8 @@ class Catfish(commands.Cog):
            await ctx.send(img)
            if count==4:
                break
-        for i in res['similar_images']:
-            await ctx.send(i)
+        #for i in res['similar_images']:
+            #await ctx.send(i)
         
 
        # msgReply += res['links'][0] +'\n'
