@@ -1,4 +1,5 @@
 from .catfish import Catfish
 
-def setup():
-    bot.add_cog(Catfish(bot))
+def setup(bot):
+   n = Catfish(bot)
+   bot.add_cog(n)
