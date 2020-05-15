@@ -72,12 +72,13 @@ class Catfish(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    async def catfish(self, ctx: commands.Context, author : discord.Member):
+    async def catfish(self, ctx: commands.Context, author : discord.Member= None):
         # avatarUrl = user.avatar_url
         # for similarImg in parseResults(doImageSearch(user.avatar_url))[2]:
         #     print(similarImg)
-        if author is None:
-            author = ctx.message.author
+        await ctx.channel.trigger_typing()
+        author = author or ctx.author
+
 
         msgReply = 'Top similar images to ' + author.name + '#' + author.discriminator + '\'s avatar:\n'
         await ctx.send(msgReply)
