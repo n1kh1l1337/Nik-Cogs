@@ -1,0 +1,11 @@
+{
+  "author": ["nik"],
+  "description": "",
+  "short": "",
+  "requirements": [
+    "pycurl",
+    "bs4",
+    "flask",
+    "certifi"
+  ]
+}
