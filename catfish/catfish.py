@@ -58,9 +58,9 @@ def parseResults(code):
     for desc in soup.findAll('span', attrs={'class':'st'}):
         results['descriptions'].append(desc.get_text())
 
-    for similar_image in soup.find('meta', property="og:image"):
-        tmp = json.loads(similar_image.get_text())
-        results['similar_images'].append(tmp)
+    #for similar_image in soup.find('meta', property="og:image"):
+        #tmp = json.loads(similar_image.get_text())
+        #results['similar_images'].append(tmp)
 
 
     return json.dumps(results)
@@ -72,10 +72,13 @@ class Catfish(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    async def catfish(self, ctx: commands.Context, author : discord.Member):
+    async def catfish(self, ctx: commands.Context, author : discord.Member= None):
         # avatarUrl = user.avatar_url
         # for similarImg in parseResults(doImageSearch(user.avatar_url))[2]:
         #     print(similarImg)
+        await ctx.channel.trigger_typing()
+        author = author or ctx.author
+
 
         msgReply = 'Top similar images to ' + author.name + '#' + author.discriminator + '\'s avatar:\n'
         await ctx.send(msgReply)
@@ -87,8 +90,8 @@ class Catfish(commands.Cog):
            await ctx.send(img)
            if count==4:
                break
-        for i in res['similar_images']:
-            await ctx.send(i)
+        #for i in res['similar_images']:
+            #await ctx.send(i)
         
 
        # msgReply += res['links'][0] +'\n'
