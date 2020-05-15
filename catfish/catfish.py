@@ -17,9 +17,9 @@ class Catfish(commands.Cog):
 			blocked_members = []
 		)
 	@commands.command()
-	async def catfish(self, ctx,author: discord.Member):
-        avt = str(author.avatar_url)
+	async def catfish(self, ctx, author: discord.Member):
 		blocked_members = await self.config.guild(ctx.guild).blocked_members()
+		avt = str(author.avatar_url)
 		if ctx.author.id in blocked_members:
 			return
 		image = google_images_download.googleimagesdownload().download({"url": avt, "limit": 4, "output_directory": str(cog_data_path(self))})
