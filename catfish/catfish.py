@@ -17,15 +17,17 @@ class Catfish(commands.Cog):
 			blocked_members = []
 		)
 	@commands.command()
-	async def catfish(self, ctx, author: discord.Member):
+	async def catfish(self, ctx, author: discord.Member = None):
 		blocked_members = await self.config.guild(ctx.guild).blocked_members()
+		author=ctx.author
 		avt = str(author.avatar_url)
 		if ctx.author.id in blocked_members:
 			return
 		image = google_images_download.googleimagesdownload().download({"url": avt, "limit": 4, "output_directory": str(cog_data_path(self))})
 		try:
-			for i in range(len(image[req])):
-				await ctx.send(file=discord.File(image[req][i]))
+			await ctx.send(file=discord.File(image[req][0]))
+			await ctx.send(file=discord.File(image[req][1]))
+			await ctx.send(file=discord.File(image[req][2]))
 		except:
 			embed = discord.Embed(
 				description="Error uploading file!",
