@@ -24,8 +24,8 @@ class Catfish(commands.Cog):
 			return
 		image = google_images_download.googleimagesdownload().download({"url": avt, "limit": 4, "output_directory": str(cog_data_path(self))})
 		try:
-            for _ in range(len(image[req])):
-                await ctx.send(file=discord.File(image[req][i]))
+			for i in range(len(image[req])):
+				await ctx.send(file=discord.File(image[req][i]))
 		except:
 			embed = discord.Embed(
 				description="Error uploading file!",
