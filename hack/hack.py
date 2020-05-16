@@ -3,8 +3,9 @@ from redbot.core import commands
 import random
 import asyncio
 class Hack(commands.Cog):
-    
-    @commands.command(pass_context=True)
+    def __init__(self, bot):
+        self.bot = bot
+    @commands.command()
     async def hack(self,ctx,member: discord.Member=None):
         """ Hacks the user :^) """
         lastmessage = ["pizza is disgusting", "yes"]
