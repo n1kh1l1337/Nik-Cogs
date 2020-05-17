@@ -90,10 +90,10 @@ class Catfish(commands.Cog):
         for i in res['similar_images']:
             await ctx.send(i)
 
-       # msgReply += res['links'][0] +'\n'
-       # msgReply += res['links'][1] +'\n'
-       #msgReply += res['links'][2] +'\n'
-       # msgReply += res['descriptions'][0] +'\n'
+        # msgReply += res['links'][0] +'\n'
+        # msgReply += res['links'][1] +'\n'
+        #msgReply += res['links'][2] +'\n'
+        # msgReply += res['descriptions'][0] +'\n'
         
         # print(res['similar_images'])
 
