@@ -24,5 +24,4 @@ class Guess(commands.Cog):
         embed.add_field(name='**Winner : **', value='{}'.format(winner), inline=False)
         embed.add_field(name='**The correct number was : **', value= answer, inline=False)
         embed.add_field(name='**Total tries :**', value= count+1)
-        embed.add_field(name='Thank you all for participating <3 and good luck next time!', inline=False)
         await ctx.send(embed=embed)
