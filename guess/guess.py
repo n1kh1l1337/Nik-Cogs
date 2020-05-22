@@ -13,11 +13,11 @@ class Guess(commands.Cog):
         count =0
         def check(m):
             return m.content.isdigit()
-        guess = await bot.wait_for('message', check=check)
+        guess = await self.bot.wait_for('message', check=check)
         winner=guess.author.mention
         answer = random.randint(1,100)
         while int(guess.content) != answer:
-            guess = await bot.wait_for('message', check=check)
+            guess = await self.bot.wait_for('message', check=check)
             count+=1
         embed = discord.Embed(title='Congrats!!',colour=0x00ff00)
         embed.description=':tada: **| Finally someone guessed it right !! Congratulations to our winner :** '
