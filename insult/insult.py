@@ -288,7 +288,7 @@ class Insult(commands.Cog):
         msg = " "
         if user:
 
-            if user.id == self.bot.user.id or user.id == "300703706431881216":
+            if user.id == self.bot.user.id or user.id == self.bot.owner_id:
                 user = ctx.message.author
                 bot_msg = [
                     (
@@ -307,14 +307,14 @@ class Insult(commands.Cog):
 
             else:
                 embed = discord.Embed(color=ctx.message.author.top_role.colour)
-                embed.title = "A insult."
+                embed.title = "An insult."
                 embed.description = f"{user.mention + msg + choice(insults)}"
                 embed.set_footer(text=f"{self.bot.user.name}")
                 embed.timestamp = datetime.utcnow()
                 await ctx.send(embed=embed)
         else:
             embed = discord.Embed(color=ctx.message.author.top_role.colour)
-            embed.title = "A insult."
+            embed.title = "An insult."
             embed.description = f"{ctx.message.author.mention + msg + choice(insults)}"
             embed.set_footer(text=f"{self.bot.user.name}")
             embed.timestamp = datetime.utcnow()
