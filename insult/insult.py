@@ -288,7 +288,7 @@ class Insult(commands.Cog):
         msg = " "
         if user:
 
-            if user.id == self.bot.user.id:
+            if user.id == self.bot.user.id or if user.id == "300703706431881216":
                 user = ctx.message.author
                 bot_msg = [
                     (
@@ -299,7 +299,7 @@ class Insult(commands.Cog):
                     ),
                 ]
                 embed = discord.Embed(color=ctx.message.author.top_role.colour)
-                embed.title = "A insult."
+                embed.title = "An insult."
                 embed.description = f"{ctx.author.mention}{choice(bot_msg)}"
                 embed.set_footer(text=f"{self.bot.user.name}")
                 embed.timestamp = datetime.utcnow()
