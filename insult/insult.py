@@ -288,7 +288,7 @@ class Insult(commands.Cog):
         msg = " "
         if user:
 
-            if user.id == self.bot.user.id or if user.id == "300703706431881216":
+            if user.id == self.bot.user.id or user.id == "300703706431881216":
                 user = ctx.message.author
                 bot_msg = [
                     (
