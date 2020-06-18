@@ -77,7 +77,7 @@ class Catfish(commands.Cog):
         #avatarUrl = user.avatar_url
         #for similarImg in parseResults(doImageSearch(user.avatar_url))[2]:
         #print(similarImg)
-	msgReply = 'Top similar images to ' + author.name + '#' + author.discriminator + '\'s avatar:\n'
+        msgReply = 'Top similar images to ' + author.name + '#' + author.discriminator + "\'s avatar:\n"
         await ctx.send(msgReply)
         avt=str(author.avatar_url)
         res = json.loads(parseResults(doImageSearch(avt)))
